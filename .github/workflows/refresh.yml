@@ -1,0 +1,74 @@
+name: refresh
+
+on:
+  schedule:
+    # 12:30 UTC daily = early morning in California (NVIDIA HQ timezone).
+    - cron: "30 12 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "cmd/**"
+      - "internal/**"
+      - "docs/index.html"
+      - ".github/workflows/refresh.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Lint & test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - run: gofmt -l . && test -z "$(gofmt -l .)"
+      - run: go vet ./...
+      - run: go test ./...
+
+  build-deploy:
+    name: Scrape, generate & deploy
+    needs: quality
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      # Fail the run (and keep the previous Pages deploy live) if NVIDIA
+      # changed the page or the network is down.
+      - name: Scrape NVIDIA + generate feed
+        run: go run ./cmd/gen -out docs/nvidia-holidays.ics -json docs/holidays.json
+
+      - name: Sanity-check the feed
+        run: |
+          test -s docs/nvidia-holidays.ics
+          head -1 docs/nvidia-holidays.ics | grep -q "BEGIN:VCALENDAR"
+          grep -q "END:VCALENDAR" docs/nvidia-holidays.ics
+          # At least one event for the current or next calendar year.
+          year=$(date -u +%Y)
+          next=$((year + 1))
+          grep -Eq "DTSTART;VALUE=DATE:(${year}|${next})" docs/nvidia-holidays.ics
+          python3 -c "import json,sys; d=json.load(open('docs/holidays.json')); assert len(d) > 0, 'empty json'"
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deployment
+        uses: actions/deploy-pages@v4

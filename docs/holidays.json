@@ -1,0 +1,230 @@
+[
+  {
+    "name": "New Year's Day",
+    "date": "2026-01-01",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Dr. Martin Luther King, Jr. Day",
+    "date": "2026-01-19",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Presidents Day",
+    "date": "2026-02-16",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Free Day",
+    "date": "2026-03-26",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Free Day",
+    "date": "2026-03-27",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Memorial Day",
+    "date": "2026-05-25",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Juneteenth",
+    "date": "2026-06-17",
+    "observed": true,
+    "free_day": false
+  },
+  {
+    "name": "Free Day",
+    "date": "2026-06-18",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Free Day",
+    "date": "2026-06-19",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Independence Day",
+    "date": "2026-07-03",
+    "observed": true,
+    "free_day": false
+  },
+  {
+    "name": "Labor Day",
+    "date": "2026-09-07",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Free Day",
+    "date": "2026-09-24",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Free Day",
+    "date": "2026-09-25",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Veterans Day",
+    "date": "2026-11-11",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Thanksgiving Day",
+    "date": "2026-11-26",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Day after Thanksgiving",
+    "date": "2026-11-27",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Christmas",
+    "date": "2026-12-23",
+    "observed": true,
+    "free_day": false
+  },
+  {
+    "name": "Free Day",
+    "date": "2026-12-24",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Free Day",
+    "date": "2026-12-25",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "New Year's Day",
+    "date": "2027-01-01",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Dr. Martin Luther King, Jr. Day",
+    "date": "2027-01-18",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Presidents Day",
+    "date": "2027-02-15",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Free Day",
+    "date": "2027-03-25",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Free Day",
+    "date": "2027-03-26",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Memorial Day",
+    "date": "2027-05-31",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Juneteenth",
+    "date": "2027-06-16",
+    "observed": true,
+    "free_day": false
+  },
+  {
+    "name": "Free Day",
+    "date": "2027-06-17",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Free Day",
+    "date": "2027-06-18",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Independence Day",
+    "date": "2027-07-05",
+    "observed": true,
+    "free_day": false
+  },
+  {
+    "name": "Labor Day",
+    "date": "2027-09-06",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Free Day",
+    "date": "2027-09-23",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Free Day",
+    "date": "2027-09-24",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Veterans Day",
+    "date": "2027-11-11",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Thanksgiving Day",
+    "date": "2027-11-25",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Day after Thanksgiving",
+    "date": "2027-11-26",
+    "observed": false,
+    "free_day": false
+  },
+  {
+    "name": "Christmas",
+    "date": "2027-12-22",
+    "observed": true,
+    "free_day": false
+  },
+  {
+    "name": "Free Day",
+    "date": "2027-12-23",
+    "observed": false,
+    "free_day": true
+  },
+  {
+    "name": "Free Day",
+    "date": "2027-12-24",
+    "observed": false,
+    "free_day": true
+  }
+]

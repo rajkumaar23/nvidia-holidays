@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NVIDIA Holidays &amp; Free Days — Calendar Feed</title>
+<meta name="description" content="A subscribable ICS calendar of NVIDIA US holidays and Free Days, auto-refreshed daily from nvidia.com.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #76b900;
+    --green-light: #bff230;
+    --free: #1e88e5;
+    --black: #000000;
+    --near-black: #1a1a1a;
+    --white: #ffffff;
+    --gray-300: #a7a7a7;
+    --gray-500: #757575;
+    --border: #5e5e5e;
+    --hover-link: #3860be;
+    --shadow: rgba(0, 0, 0, 0.3) 0px 0px 5px 0px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    background: var(--black);
+    color: var(--white);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  a { color: var(--white); text-decoration: none; }
+  a:hover { color: var(--hover-link); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    background: var(--black);
+    border-bottom: 1px solid #222;
+    position: sticky; top: 0; z-index: 10;
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .wordmark { font-weight: 700; font-size: 18px; letter-spacing: 0.5px; }
+  .wordmark span { color: var(--green); }
+  nav .links { display: flex; gap: 24px; font-size: 14px; font-weight: 700; text-transform: uppercase; }
+
+  /* Hero */
+  header { padding: 80px 0 56px; text-align: center;
+    background:
+      radial-gradient(60% 120% at 50% -20%, rgba(118,185,0,0.18) 0%, rgba(0,0,0,0) 70%),
+      var(--black);
+  }
+  .kicker { color: var(--green); font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
+  h1 { font-size: 44px; font-weight: 700; line-height: 1.25; max-width: 760px; margin: 0 auto 20px; }
+  .lede { font-size: 18px; font-weight: 400; color: var(--gray-300); max-width: 640px; margin: 0 auto 36px; line-height: 1.67; }
+  .lede a { color: var(--white); border-bottom: 2px solid var(--green); }
+  .lede a:hover { color: var(--hover-link); }
+
+  /* Buttons */
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 12px 22px; border-radius: 2px;
+    font-size: 16px; font-weight: 700; line-height: 1.25; cursor: pointer;
+    background: transparent; border: 2px solid var(--green); color: var(--white);
+  }
+  .btn:hover { background: #1eaedb; color: var(--white); border-color: #1eaedb; }
+  .btn.secondary { border-width: 1px; border-color: var(--border); color: var(--gray-300); }
+  .btn.secondary:hover { border-color: var(--green); color: var(--white); background: transparent; }
+
+  /* Feed URL box */
+  .feedbox {
+    margin: 32px auto 0; max-width: 720px; display: flex; align-items: stretch;
+    border: 1px solid var(--border); border-radius: 2px; overflow: hidden;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px;
+    background: var(--near-black); box-shadow: var(--shadow);
+  }
+  .feedbox code { flex: 1; padding: 12px 14px; color: var(--green-light); white-space: nowrap; overflow-x: auto; }
+  .feedbox button {
+    border: 0; border-left: 1px solid var(--border); background: transparent;
+    color: var(--white); font-weight: 700; font-size: 13px; padding: 0 18px; cursor: pointer;
+    font-family: inherit;
+  }
+  .feedbox button:hover { background: #1eaedb; }
+
+  /* Legend + calendar grid */
+  section { padding: 64px 0; }
+  .section-label { color: var(--green); font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+  h2 { font-size: 24px; font-weight: 700; line-height: 1.25; margin-bottom: 24px; }
+  .legend { display: flex; gap: 24px; margin-bottom: 24px; font-size: 14px; color: var(--gray-300); }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+  .dot.holiday { background: var(--green); }
+  .dot.free { background: var(--free); }
+
+  .year-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .card {
+    background: var(--near-black); border: 1px solid #2a2a2a; border-radius: 2px;
+    box-shadow: var(--shadow); padding: 24px;
+  }
+  .card h3 { font-size: 20px; font-weight: 700; line-height: 1.25; margin-bottom: 16px; border-bottom: 2px solid var(--green); display: inline-block; padding-bottom: 4px; }
+  .card ul { list-style: none; }
+  .card li {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 7px 0; border-bottom: 1px solid #242424; font-size: 15px;
+  }
+  .card li:last-child { border-bottom: 0; }
+  .card li .date { color: var(--gray-300); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; white-space: nowrap; }
+  .card li .tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 6px; border-radius: 2px; align-self: center; }
+  .card li.holiday .tag { color: var(--green); border: 1px solid var(--green); }
+  .card li.free .tag { color: var(--free); border: 1px solid var(--free); }
+  .muted { color: var(--gray-500); }
+
+  /* How it works */
+  .how { background: var(--white); color: var(--black); }
+  .how .section-label { color: #3f8500; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 8px; }
+  .step { background: #f7f7f7; border: 1px solid #e3e3e3; border-radius: 2px; padding: 24px; }
+  .step .num { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #3f8500; margin-bottom: 8px; }
+  .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .step p { font-size: 14px; color: #333; line-height: 1.67; }
+  .step code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; background: #eee; padding: 1px 5px; border-radius: 2px; }
+
+  footer { padding: 40px 0 56px; border-top: 1px solid #222; font-size: 13px; color: var(--gray-500); }
+  footer a { color: var(--gray-300); }
+  footer a:hover { color: var(--green); }
+  .foot-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  @media (max-width: 768px) {
+    h1 { font-size: 30px; }
+    .year-grid, .steps { grid-template-columns: 1fr; }
+    nav .links { display: none; }
+    header { padding: 56px 0 40px; }
+    section { padding: 40px 0; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <div class="wordmark">HOLIDAYS<span>·</span>AI</div>
+    <div class="links">
+      <a href="#calendar">Calendar</a>
+      <a href="#how">How it works</a>
+      <a href="https://github.com/rajkumaar23/nvidia-holidays">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="container">
+    <div class="kicker">Calendar Feed</div>
+    <h1>NVIDIA Holidays &amp; Free Days, on your calendar. Automatically.</h1>
+    <p class="lede">Every US company holiday and Free Day from NVIDIA's official
+      <a href="https://www.nvidia.com/en-us/benefits/time-off/">time-off page</a>,
+      republished as a subscribable ICS feed and re-scraped every day.</p>
+    <div class="cta-row">
+      <a class="btn" id="apple-btn" href="#">Add to Apple Calendar</a>
+      <a class="btn" id="google-btn" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
+      <button class="btn secondary" id="copy-btn" type="button">Copy Feed URL</button>
+    </div>
+    <div class="feedbox"><code id="feed-url"></code><button type="button" id="copy-btn-2">COPY</button></div>
+  </div>
+</header>
+
+<section id="calendar">
+  <div class="container">
+    <div class="section-label">The Schedule</div>
+    <h2>Upcoming days off</h2>
+    <div class="legend">
+      <span><span class="dot holiday"></span>Company / federal holiday</span>
+      <span><span class="dot free"></span>Free Day</span>
+    </div>
+    <div class="year-grid" id="year-grid">
+      <p class="muted">Loading schedule…</p>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-label">Under the Hood</div>
+    <h2>Always current, zero maintenance</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01 — Scrape</div>
+        <h3>Daily GitHub Actions cron</h3>
+        <p>A small Go program fetches NVIDIA's time-off page and parses every
+        <code>YYYY Holidays and Free Days</code> section. Failures leave the last
+        good feed untouched.</p>
+      </div>
+      <div class="step">
+        <div class="num">02 — Publish</div>
+        <h3>RFC 5545 ICS, deterministic output</h3>
+        <p>Events are all-day, transparent, colour-coded, with stable UIDs —
+        so clients update in place instead of duplicating entries.</p>
+      </div>
+      <div class="step">
+        <div class="num">03 — Subscribe</div>
+        <h3>Your calendar refreshes itself</h3>
+        <p>Subscribe once. The feed advertises a 12-hour refresh TTL, so new
+        Free Days appear without you doing anything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-row">
+    <div>Unofficial feed. Source of truth: <a href="https://www.nvidia.com/en-us/benefits/time-off/">nvidia.com/en-us/benefits/time-off</a>. Not affiliated with NVIDIA.</div>
+    <div>Built with Go · Hosted on GitHub Pages · <a href="https://github.com/rajkumaar23/nvidia-holidays">Source</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var FEED = new URL('nvidia-holidays.ics', window.location.href).href;
+  var WEBCAL = FEED.replace(/^https:/, 'webcal:');
+
+  document.getElementById('feed-url').textContent = FEED;
+  document.getElementById('apple-btn').href = WEBCAL;
+  document.getElementById('google-btn').href =
+    'https://calendar.google.com/calendar/r?cid=' + encodeURIComponent(FEED);
+
+  function copy() {
+    navigator.clipboard.writeText(FEED).then(function () {
+      var b = document.getElementById('copy-btn'), t = b.textContent;
+      b.textContent = 'Copied ✓';
+      setTimeout(function () { b.textContent = t; }, 1500);
+    });
+  }
+  document.getElementById('copy-btn').addEventListener('click', copy);
+  document.getElementById('copy-btn-2').addEventListener('click', copy);
+
+  // Data is fetched at runtime from the feed generator's JSON output —
+  // never baked into this page at build time.
+  fetch(new URL('holidays.json', window.location.href).href)
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (items) {
+      var byYear = {};
+      items.forEach(function (h) { (byYear[h.date.slice(0, 4)] ||= []).push(h); });
+      var years = Object.keys(byYear).sort();
+      var grid = document.getElementById('year-grid');
+      grid.innerHTML = '';
+      var today = new Date().toISOString().slice(0, 10);
+      years.forEach(function (y) {
+        var card = document.createElement('div');
+        card.className = 'card';
+        var ul = '';
+        byYear[y].forEach(function (h) {
+          var past = h.date < today;
+          var cls = h.free_day ? 'free' : 'holiday';
+          var tag = h.free_day ? 'Free Day' : 'Holiday';
+          var d = new Date(h.date + 'T00:00:00');
+          var label = d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+          ul += '<li class="' + cls + (past ? ' past' : '') + '"' +
+                (past ? ' style="opacity:.45"' : '') + '>' +
+                '<span>' + esc(h.name) + (h.observed ? ' <span class="muted">(observed)</span>' : '') + '</span>' +
+                '<span class="date">' + label + '</span>' +
+                '<span class="tag">' + tag + '</span></li>';
+        });
+        card.innerHTML = '<h3>' + y + '</h3><ul>' + ul + '</ul>';
+        grid.appendChild(card);
+      });
+    })
+    .catch(function () {
+      document.getElementById('year-grid').innerHTML =
+        '<p class="muted">Schedule unavailable — the feed is generated by the daily refresh workflow. ' +
+        'Run <code>go run ./cmd/gen</code> or trigger the workflow to populate it.</p>';
+    });
+
+  function esc(s) {
+    return s.replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+})();
+</script>
+</body>
+</html>
