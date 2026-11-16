@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NV-Holidays — NVIDIA Holidays &amp; Free Days Calendar Feed (ICS, auto-updated)</title>
-<meta name="description" content="Free, unofficial ICS calendar feed of NVIDIA US holidays and Free Days (2026–2027), auto-refreshed daily from nvidia.com. One-click subscribe on iPhone, Mac, Google Calendar and Android. Not affiliated with NVIDIA.">
-<meta name="keywords" content="NVIDIA holidays, NVIDIA free days, NVDA holidays 2026, NVDA holidays 2027, NVIDIA calendar, ICS feed, subscribed calendar, company holidays">
+<title>NV-Holidays — NVIDIA US Holidays &amp; Free Days Calendar Feed (ICS, auto-updated)</title>
+<meta name="description" content="Free, unofficial ICS calendar feed of NVIDIA holidays and Free Days for U.S. employees (2026-2027), auto-refreshed daily from nvidia.com. U.S. schedule only - international offices differ. One-click subscribe on iPhone, Mac, Google Calendar and Android. Not affiliated with NVIDIA.">
+<meta name="keywords" content="NVIDIA holidays USA, NVIDIA US holidays, NVIDIA free days, NVDA holidays 2026, NVDA holidays 2027, NVIDIA US office calendar, ICS feed, subscribed calendar">
 <meta name="author" content="Rajkumar">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
@@ -17,7 +17,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NV-Holidays">
 <meta property="og:title" content="NVIDIA Holidays &amp; Free Days — auto-updating calendar feed">
-<meta property="og:description" content="Every NVIDIA US holiday and Free Day on your calendar, refreshed daily. One-click subscribe: iPhone, Mac, Google Calendar.">
+<meta property="og:description" content="Every NVIDIA holiday and Free Day for U.S. employees, on your calendar, refreshed daily. U.S. schedule only - international offices differ. One-click subscribe.">
 <meta property="og:url" content="https://nv-holidays.rajkumaar.co.in/">
 <meta property="og:image" content="https://nv-holidays.rajkumaar.co.in/banner.png">
 <meta property="og:image:width" content="1200">
@@ -27,7 +27,7 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="NVIDIA Holidays &amp; Free Days — auto-updating calendar feed">
-<meta name="twitter:description" content="Every NVIDIA US holiday and Free Day on your calendar, refreshed daily. One-click subscribe.">
+<meta name="twitter:description" content="Every NVIDIA holiday and Free Day for U.S. employees, refreshed daily. U.S. schedule only - international offices differ. One-click subscribe.">
 <meta name="twitter:image" content="https://nv-holidays.rajkumaar.co.in/banner.png">
 <meta name="twitter:image:alt" content="NV-Holidays — NVIDIA holidays and Free Days calendar feed">
 
@@ -39,7 +39,7 @@
   "name": "NV-Holidays",
   "alternateName": "NVIDIA Holidays & Free Days Calendar Feed",
   "url": "https://nv-holidays.rajkumaar.co.in/",
-  "description": "Unofficial, community-maintained ICS calendar feed of NVIDIA US holidays and Free Days, scraped daily from NVIDIA's public time-off page.",
+  "description": "Unofficial, community-maintained ICS calendar feed of NVIDIA holidays and Free Days for U.S. employees. U.S. schedule only - international offices observe different holidays. Scraped daily from NVIDIA's public time-off page.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "iOS, macOS, Android, Web",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -144,6 +144,8 @@
   section { padding: 64px 0; }
   .section-label { color: var(--accent); font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
   h2 { font-size: 24px; font-weight: 700; line-height: 1.25; margin-bottom: 24px; }
+  .usnote { max-width: 720px; color: var(--gray-300); font-size: 15px; margin: -8px 0 24px; }
+  .usnote code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
   .legend { display: flex; gap: 24px; margin-bottom: 24px; font-size: 14px; color: var(--gray-300); }
   .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
   .dot.holiday { background: var(--accent); }
@@ -211,9 +213,10 @@
   <div class="container">
     <div class="kicker">Calendar Feed</div>
     <h1>NVIDIA Holidays &amp; Free Days, on your calendar. Automatically.</h1>
-    <p class="lede">Every US company holiday and Free Day from NVIDIA's official
-      <a href="https://www.nvidia.com/en-us/benefits/time-off/">time-off page</a>,
-      republished as a subscribable ICS feed and re-scraped every day.</p>
+    <p class="lede">Every company holiday and Free Day from NVIDIA's official
+      <a href="https://www.nvidia.com/en-us/benefits/time-off/">U.S. time-off page</a>,
+      republished as a subscribable ICS feed and re-scraped every day.
+      <strong>U.S. employees only</strong> — international offices observe different holidays.</p>
     <div class="cta-row">
       <a class="btn" id="apple-btn" href="#">Add to Apple Calendar</a>
       <a class="btn" id="google-btn" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
@@ -226,7 +229,10 @@
 <section id="calendar">
   <div class="container">
     <div class="section-label">The Schedule</div>
-    <h2>Upcoming days off</h2>
+    <h2>Upcoming days off — U.S. offices</h2>
+    <p class="usnote">These are the days NVIDIA's <strong>U.S.</strong> employees are off (Santa Clara HQ schedule,
+    <code>America/Los_Angeles</code>). NVIDIA teams in India, Israel, the EU and elsewhere observe
+    local holidays instead — this feed intentionally excludes them.</p>
     <div class="legend">
       <span><span class="dot holiday"></span>Company / federal holiday</span>
       <span><span class="dot free"></span>Free Day</span>

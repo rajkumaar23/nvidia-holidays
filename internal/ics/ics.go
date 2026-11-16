@@ -10,8 +10,8 @@ import (
 )
 
 const (
-	prodID   = "-//rajkumaar23//NVIDIA Holidays & Free Days//EN"
-	calendar = "NVIDIA Holidays & Free Days"
+	prodID   = "-//rajkumaar23//NVIDIA US Holidays & Free Days//EN"
+	calendar = "NVIDIA Holidays & Free Days (US)"
 	// NVIDIA US HQ timezone; all-day events are timezone-free but clients
 	// use this hint for display and reminder defaults.
 	wrTimezone = "America/Los_Angeles"
@@ -41,7 +41,7 @@ func Generate(holidays []model.Holiday) string {
 	line(&b, "CALSCALE", "GREGORIAN")
 	line(&b, "METHOD", "PUBLISH")
 	line(&b, "X-WR-CALNAME", calendar)
-	line(&b, "X-WR-CALDESC", "US holidays and Free Days published by NVIDIA, auto-refreshed daily.")
+	line(&b, "X-WR-CALDESC", "US-only schedule for NVIDIA U.S. employees, published by NVIDIA and auto-refreshed daily. International offices observe different holidays. Unofficial feed, not affiliated with NVIDIA.")
 	line(&b, "X-WR-TIMEZONE", wrTimezone)
 	fmt.Fprintf(&b, "REFRESH-INTERVAL;VALUE=DURATION:%s\r\n", refreshTTL)
 	fmt.Fprintf(&b, "X-PUBLISHED-TTL:%s\r\n", refreshTTL)
@@ -55,10 +55,10 @@ func Generate(holidays []model.Holiday) string {
 
 func writeEvent(b *strings.Builder, h model.Holiday) {
 	color := colorHoliday
-	tag := "NVIDIA company holiday"
+	tag := "NVIDIA US company holiday"
 	if h.IsFreeDay() {
 		color = colorFreeDay
-		tag = "NVIDIA Free Day"
+		tag = "NVIDIA US Free Day"
 	}
 	b.WriteString("BEGIN:VEVENT\r\n")
 	line(b, "UID", h.UID())

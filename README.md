@@ -3,9 +3,11 @@
 > **⚠️ Unofficial community project — not affiliated with, endorsed by, or sponsored by
 > NVIDIA Corporation.** NVIDIA® is a registered trademark of NVIDIA Corporation.
 > The data source is NVIDIA's public benefits page; if the two ever disagree, NVIDIA wins.
+> **Scope: U.S. employees only.** This mirrors NVIDIA's U.S. (Santa Clara HQ) schedule —
+> international offices observe local holidays that are intentionally NOT included.
 
-> A subscribable, always-fresh **ICS calendar feed** of NVIDIA's US company holidays
-> and Free Days — scraped daily from NVIDIA's official
+> A subscribable, always-fresh **ICS calendar feed** of NVIDIA's U.S. company holidays
+> and Free Days **for U.S. employees** — scraped daily from NVIDIA's official
 > [time-off page](https://www.nvidia.com/en-us/benefits/time-off/) and published
 > via GitHub Pages. No API keys, no maintenance, one-time setup.
 
@@ -42,6 +44,7 @@ Any calendar client that supports subscribing to an ICS URL works — paste the 
 
 | | |
 |---|---|
+| **Scope** | **U.S. employees only** — U.S. federal/company holidays + Free Days (HQ schedule) |
 | **Coverage** | Every year currently published by NVIDIA (e.g. 2026 + 2027) |
 | **Events** | Company/federal holidays (🟣 `#7E57C2`) and Free Days (🔵 `#1E88E5`) |
 | **Type** | All-day, `TRANSP:TRANSPARENT` — never blocks your availability |
