@@ -25,10 +25,10 @@ concurrency:
 jobs:
   quality:
     name: Lint & test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
         with:
           go-version-file: go.mod
           cache: true
@@ -39,13 +39,13 @@ jobs:
   build-deploy:
     name: Scrape, generate & deploy
     needs: quality
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
         with:
           go-version-file: go.mod
           cache: true
@@ -66,9 +66,9 @@ jobs:
           grep -Eq "DTSTART;VALUE=DATE:(${year}|${next})" docs/nvidia-holidays.ics
           python3 -c "import json,sys; d=json.load(open('docs/holidays.json')); assert len(d) > 0, 'empty json'"
 
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: docs
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
