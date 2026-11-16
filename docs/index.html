@@ -10,8 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green: #76b900;
-    --green-light: #bff230;
+    --accent: #a78bfa;        /* violet — deliberately not NVIDIA brand green */
+    --accent-strong: #7c3aed;
+    --accent-soft: #c4b5fd;
     --free: #1e88e5;
     --black: #000000;
     --near-black: #1a1a1a;
@@ -54,19 +55,19 @@
   }
   nav .container { display: flex; align-items: center; justify-content: space-between; height: 56px; }
   .wordmark { font-weight: 700; font-size: 18px; letter-spacing: 0.5px; }
-  .wordmark span { color: var(--green); }
+  .wordmark span { color: var(--accent); }
   nav .links { display: flex; gap: 24px; font-size: 14px; font-weight: 700; text-transform: uppercase; }
 
   /* Hero */
   header { padding: 80px 0 56px; text-align: center;
     background:
-      radial-gradient(60% 120% at 50% -20%, rgba(118,185,0,0.18) 0%, rgba(0,0,0,0) 70%),
+      radial-gradient(60% 120% at 50% -20%, rgba(139,92,246,0.18) 0%, rgba(0,0,0,0) 70%),
       var(--black);
   }
-  .kicker { color: var(--green); font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
+  .kicker { color: var(--accent); font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
   h1 { font-size: 44px; font-weight: 700; line-height: 1.25; max-width: 760px; margin: 0 auto 20px; }
   .lede { font-size: 18px; font-weight: 400; color: var(--gray-300); max-width: 640px; margin: 0 auto 36px; line-height: 1.67; }
-  .lede a { color: var(--white); border-bottom: 2px solid var(--green); }
+  .lede a { color: var(--white); border-bottom: 2px solid var(--accent); }
   .lede a:hover { color: var(--hover-link); }
 
   /* Buttons */
@@ -74,11 +75,11 @@
   .btn {
     display: inline-block; padding: 12px 22px; border-radius: 2px;
     font-size: 16px; font-weight: 700; line-height: 1.25; cursor: pointer;
-    background: transparent; border: 2px solid var(--green); color: var(--white);
+    background: transparent; border: 2px solid var(--accent); color: var(--white);
   }
-  .btn:hover { background: #1eaedb; color: var(--white); border-color: #1eaedb; }
+  .btn:hover { background: #8b5cf6; color: var(--white); border-color: #8b5cf6; }
   .btn.secondary { border-width: 1px; border-color: var(--border); color: var(--gray-300); }
-  .btn.secondary:hover { border-color: var(--green); color: var(--white); background: transparent; }
+  .btn.secondary:hover { border-color: var(--accent); color: var(--white); background: transparent; }
 
   /* Feed URL box */
   .feedbox {
@@ -87,21 +88,21 @@
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px;
     background: var(--near-black); box-shadow: var(--shadow);
   }
-  .feedbox code { flex: 1; padding: 12px 14px; color: var(--green-light); white-space: nowrap; overflow-x: auto; }
+  .feedbox code { flex: 1; padding: 12px 14px; color: var(--accent-soft); white-space: nowrap; overflow-x: auto; }
   .feedbox button {
     border: 0; border-left: 1px solid var(--border); background: transparent;
     color: var(--white); font-weight: 700; font-size: 13px; padding: 0 18px; cursor: pointer;
     font-family: inherit;
   }
-  .feedbox button:hover { background: #1eaedb; }
+  .feedbox button:hover { background: #8b5cf6; }
 
   /* Legend + calendar grid */
   section { padding: 64px 0; }
-  .section-label { color: var(--green); font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+  .section-label { color: var(--accent); font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
   h2 { font-size: 24px; font-weight: 700; line-height: 1.25; margin-bottom: 24px; }
   .legend { display: flex; gap: 24px; margin-bottom: 24px; font-size: 14px; color: var(--gray-300); }
   .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
-  .dot.holiday { background: var(--green); }
+  .dot.holiday { background: var(--accent); }
   .dot.free { background: var(--free); }
 
   .year-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -109,7 +110,7 @@
     background: var(--near-black); border: 1px solid #2a2a2a; border-radius: 2px;
     box-shadow: var(--shadow); padding: 24px;
   }
-  .card h3 { font-size: 20px; font-weight: 700; line-height: 1.25; margin-bottom: 16px; border-bottom: 2px solid var(--green); display: inline-block; padding-bottom: 4px; }
+  .card h3 { font-size: 20px; font-weight: 700; line-height: 1.25; margin-bottom: 16px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 4px; }
   .card ul { list-style: none; }
   .card li {
     display: flex; justify-content: space-between; gap: 12px;
@@ -118,23 +119,23 @@
   .card li:last-child { border-bottom: 0; }
   .card li .date { color: var(--gray-300); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; white-space: nowrap; }
   .card li .tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 6px; border-radius: 2px; align-self: center; }
-  .card li.holiday .tag { color: var(--green); border: 1px solid var(--green); }
+  .card li.holiday .tag { color: var(--accent); border: 1px solid var(--accent); }
   .card li.free .tag { color: var(--free); border: 1px solid var(--free); }
   .muted { color: var(--gray-500); }
 
   /* How it works */
   .how { background: var(--white); color: var(--black); }
-  .how .section-label { color: #3f8500; }
+  .how .section-label { color: var(--accent-strong); }
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 8px; }
   .step { background: #f7f7f7; border: 1px solid #e3e3e3; border-radius: 2px; padding: 24px; }
-  .step .num { font-size: 11px; font-weight: 700; text-transform: uppercase; color: #3f8500; margin-bottom: 8px; }
+  .step .num { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--accent-strong); margin-bottom: 8px; }
   .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
   .step p { font-size: 14px; color: #333; line-height: 1.67; }
   .step code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; background: #eee; padding: 1px 5px; border-radius: 2px; }
 
   footer { padding: 40px 0 56px; border-top: 1px solid #222; font-size: 13px; color: var(--gray-500); }
   footer a { color: var(--gray-300); }
-  footer a:hover { color: var(--green); }
+  footer a:hover { color: var(--accent); }
   .foot-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
   @media (max-width: 768px) {

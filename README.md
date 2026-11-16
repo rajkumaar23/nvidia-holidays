@@ -43,7 +43,7 @@ Any calendar client that supports subscribing to an ICS URL works — paste the 
 | | |
 |---|---|
 | **Coverage** | Every year currently published by NVIDIA (e.g. 2026 + 2027) |
-| **Events** | Company/federal holidays (🟢 `#76B900`) and Free Days (🔵 `#1E88E5`) |
+| **Events** | Company/federal holidays (🟣 `#7E57C2`) and Free Days (🔵 `#1E88E5`) |
 | **Type** | All-day, `TRANSP:TRANSPARENT` — never blocks your availability |
 | **Refresh** | Feed advertises a 12-hour TTL (`X-PUBLISHED-TTL`); cron re-scrapes daily |
 | **Stability** | Stable, content-derived UIDs → clients update in place, never duplicate |

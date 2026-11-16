@@ -36,7 +36,7 @@ func TestEventFields(t *testing.T) {
 		"DTEND;VALUE=DATE:20261224\r\n", // exclusive end = next day
 		"SUMMARY:Christmas (Observed)",
 		"TRANSP:TRANSPARENT",
-		"X-APPLE-CALENDAR-COLOR:#76B900",
+		"X-APPLE-CALENDAR-COLOR:#7E57C2",
 	} {
 		if !strings.Contains(feed, want) {
 			t.Errorf("feed missing %q", want)

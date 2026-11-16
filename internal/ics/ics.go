@@ -17,7 +17,7 @@ const (
 	wrTimezone = "America/Los_Angeles"
 	refreshTTL = "PT12H"
 
-	colorHoliday = "#76B900" // NVIDIA green
+	colorHoliday = "#7E57C2" // violet — deliberately NOT NVIDIA brand green
 	colorFreeDay = "#1E88E5"
 )
 
