@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NVIDIA Holidays &amp; Free Days — Calendar Feed</title>
-<meta name="description" content="A subscribable ICS calendar of NVIDIA US holidays and Free Days, auto-refreshed daily from nvidia.com.">
+<title>NVIDIA Holidays &amp; Free Days — Unofficial Calendar Feed</title>
+<meta name="description" content="Unofficial, community-maintained ICS calendar of NVIDIA US holidays and Free Days, auto-refreshed daily from nvidia.com. Not affiliated with NVIDIA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -33,6 +33,18 @@
   a { color: var(--white); text-decoration: none; }
   a:hover { color: var(--hover-link); }
   .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* Top disclaimer — must be the first thing a visitor sees */
+  .disclaimer {
+    background: #1c1500;
+    border-bottom: 1px solid #ef9100;
+    color: #ffd28a;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+    padding: 10px 16px;
+  }
+  .disclaimer strong { color: #ffb340; }
 
   /* Nav */
   nav {
@@ -135,6 +147,10 @@
 </style>
 </head>
 <body>
+<div class="disclaimer" role="note">
+  <strong>Unofficial</strong> — this is a community project <strong>not affiliated with, endorsed by, or
+  sponsored by NVIDIA Corporation</strong>. NVIDIA® is a registered trademark of NVIDIA Corporation.
+</div>
 <nav>
   <div class="container">
     <div class="wordmark">HOLIDAYS<span>·</span>AI</div>

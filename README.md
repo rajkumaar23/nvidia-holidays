@@ -1,5 +1,9 @@
 # NVIDIA Holidays & Free Days
 
+> **⚠️ Unofficial community project — not affiliated with, endorsed by, or sponsored by
+> NVIDIA Corporation.** NVIDIA® is a registered trademark of NVIDIA Corporation.
+> The data source is NVIDIA's public benefits page; if the two ever disagree, NVIDIA wins.
+
 > A subscribable, always-fresh **ICS calendar feed** of NVIDIA's US company holidays
 > and Free Days — scraped daily from NVIDIA's official
 > [time-off page](https://www.nvidia.com/en-us/benefits/time-off/) and published
