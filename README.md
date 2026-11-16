@@ -11,8 +11,8 @@
 > [time-off page](https://www.nvidia.com/en-us/benefits/time-off/) and published
 > via GitHub Pages. No API keys, no maintenance, one-time setup.
 
-**📅 Landing page:** https://nv-holidays.rajkumaar.co.in/
-**🔗 Feed URL:** `https://nv-holidays.rajkumaar.co.in/nvidia-holidays.ics`
+- 📅 **Landing page:** https://nv-holidays.rajkumaar.co.in/
+- 🔗 **Feed URL:** `https://nv-holidays.rajkumaar.co.in/nvidia-holidays.ics`
 
 ## Subscribe
 
