@@ -9,8 +9,8 @@
 > [time-off page](https://www.nvidia.com/en-us/benefits/time-off/) and published
 > via GitHub Pages. No API keys, no maintenance, one-time setup.
 
-**📅 Landing page:** https://rajkumaar23.github.io/nvidia-holidays/
-**🔗 Feed URL:** `https://rajkumaar23.github.io/nvidia-holidays/nvidia-holidays.ics`
+**📅 Landing page:** https://nv-holidays.rajkumaar.co.in/
+**🔗 Feed URL:** `https://nv-holidays.rajkumaar.co.in/nvidia-holidays.ics`
 
 ## Subscribe
 
@@ -20,12 +20,12 @@
    (on Mac: Calendar app → File → New Calendar Subscription)
 2. Paste:
    ```
-   https://rajkumaar23.github.io/nvidia-holidays/nvidia-holidays.ics
+   https://nv-holidays.rajkumaar.co.in/nvidia-holidays.ics
    ```
 3. Name it *NVIDIA Holidays*, tap Done.
 
 Or just open this one-tap link on your iPhone:
-[`webcal://rajkumaar23.github.io/nvidia-holidays/nvidia-holidays.ics`](webcal://rajkumaar23.github.io/nvidia-holidays/nvidia-holidays.ics)
+[`webcal://nv-holidays.rajkumaar.co.in/nvidia-holidays.ics`](webcal://nv-holidays.rajkumaar.co.in/nvidia-holidays.ics)
 
 ### Google Calendar
 
@@ -108,6 +108,11 @@ Unofficial project. Data comes from NVIDIA's public benefits page; this repo
 is not affiliated with or endorsed by NVIDIA. If NVIDIA and this feed ever
 disagree, **NVIDIA wins** — check
 [the official page](https://www.nvidia.com/en-us/benefits/time-off/).
+
+## Author
+
+**Rajkumar** — [rajkumaar.co.in](https://rajkumaar.co.in) ·
+[GitHub @rajkumaar23](https://github.com/rajkumaar23)
 
 ## License
 

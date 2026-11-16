@@ -45,7 +45,7 @@ func (h Holiday) UID() string {
 	htr := fnv.New64a()
 	// io.Writer on hash never returns an error.
 	_, _ = fmt.Fprintf(htr, "%s|%s", h.Name, h.Date.Format("2006-01-02"))
-	return fmt.Sprintf("%x@nvidia-holidays.gh.rajkumaar23", htr.Sum64())
+	return fmt.Sprintf("%x@nv-holidays.rajkumaar.co.in", htr.Sum64())
 }
 
 // ByDate sorts holidays chronologically, with name as tie-breaker so output
