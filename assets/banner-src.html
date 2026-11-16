@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background:
+      radial-gradient(52% 90% at 78% -10%, rgba(139,92,246,0.30) 0%, rgba(0,0,0,0) 65%),
+      radial-gradient(40% 70% at 8% 110%, rgba(30,136,229,0.16) 0%, rgba(0,0,0,0) 60%),
+      #000;
+    color: #fff;
+    position: relative;
+  }
+  .grid-lines {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(70% 70% at 70% 20%, #000 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(70% 70% at 70% 20%, #000 0%, transparent 100%);
+  }
+  .wrap { position: relative; padding: 64px 72px; height: 100%; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .logo {
+    width: 52px; height: 52px; border-radius: 10px;
+    background: linear-gradient(160deg, #a78bfa, #7c3aed);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 26px; color: #fff;
+    box-shadow: 0 0 40px rgba(139,92,246,0.45);
+  }
+  .brand .name { font-weight: 800; font-size: 26px; letter-spacing: 0.5px; }
+  .brand .name em { font-style: normal; color: #a78bfa; }
+  .kicker { margin-top: 46px; color: #a78bfa; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; }
+  h1 { margin-top: 12px; font-size: 62px; font-weight: 800; line-height: 1.12; letter-spacing: -1px; max-width: 900px; }
+  h1 .g { color: #a78bfa; }
+  .sub { margin-top: 20px; font-size: 23px; font-weight: 300; color: #b9b9b9; }
+  .chips { display: flex; gap: 14px; margin-top: 34px; }
+  .chip {
+    font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    padding: 9px 18px; border-radius: 3px;
+  }
+  .chip.h { color: #c4b5fd; border: 2px solid #7c3aed; }
+  .chip.f { color: #90caf9; border: 2px solid #1e88e5; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; }
+  .cal {
+    position: absolute; right: 72px; top: 128px; width: 330px;
+    background: #141414; border: 1px solid #2a2a2a; border-radius: 14px;
+    padding: 22px 24px; box-shadow: 0 0 70px rgba(139,92,246,0.22), rgba(0,0,0,0.5) 0 12px 40px;
+    transform: rotate(2.5deg);
+  }
+  .cal .m { font-size: 17px; font-weight: 700; color: #c4b5fd; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+  .cal .row { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 8px; }
+  .cal .d { height: 30px; border-radius: 6px; background: #1f1f1f; }
+  .cal .d.h { background: linear-gradient(160deg, #a78bfa, #7c3aed); box-shadow: 0 0 14px rgba(139,92,246,0.5); }
+  .cal .d.f { background: #1e88e5; box-shadow: 0 0 14px rgba(30,136,229,0.45); }
+  .cal .d.off { background: transparent; }
+  .url { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 19px; color: #c4b5fd; }
+  .unoff { font-size: 17px; color: #b9b9b9; font-weight: 600; }
+  .unoff b { color: #ffb340; }
+</style>
+</head>
+<body>
+<div class="grid-lines"></div>
+<div class="wrap">
+  <div class="cal">
+    <div class="m">June 2027</div>
+    <div class="row"><div class="d off"></div><div class="d off"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+    <div class="row"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+    <div class="row"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d h"></div><div class="d f"></div><div class="d f"></div><div class="d"></div></div>
+    <div class="row"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div></div>
+    <div class="row"><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d"></div><div class="d off"></div></div>
+  </div>
+  <div class="brand">
+    <div class="logo">N</div>
+    <div class="name">NV<em>-</em>Holidays</div>
+  </div>
+  <div class="kicker">Calendar Feed · ICS</div>
+  <h1>NVIDIA Holidays &amp;<br><span class="g">Free Days,</span><br>on your calendar.</h1>
+  <div class="sub">Scraped daily from nvidia.com · Subscribe once · Always current</div>
+  <div class="chips">
+    <div class="chip h">Company Holidays</div>
+    <div class="chip f">Free Days</div>
+  </div>
+  <div class="foot">
+    <div class="url">nv-holidays.rajkumaar.co.in</div>
+    <div class="unoff"><b>Unofficial</b> · not affiliated with NVIDIA Corporation</div>
+  </div>
+</div>
+</body>
+</html>
